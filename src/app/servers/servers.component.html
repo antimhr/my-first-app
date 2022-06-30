@@ -1,7 +1,52 @@
-<app-server></app-server>
-<app-server></app-server>
+<!-- <app-server></app-server> -->
 
 <!-- property binding -->
 <button class="btn btn-primary p-2" [disabled]="!allowNewServer">Button</button>
 <p [innerHTML]="allowNewServer"></p>
+
+<!-- Event Binding -->
+
+<!-- <button class="btn btn-primary p-2" (click)="onCreateServer()">Button</button>
+<p>{{serverCreationStatus}}</p>
+
+<label for="server">server Name</label><br>
+<input type="text" class="form-control-md" (input)="onUpdateServerName($event)">
+<br>
+<input type="text" class="form-control-md"[(ngModel)]="serverName">
+<p>{{serverName}}</p> -->
+
+
+
+<!-- Assignment -->
+<label for="username">User Name</label><br>
+<input type="text" class="form-control-md" [(ngModel)]="userName">
+
+<p>{{userName}}</p>                                        
+                                <!-- using function -->
+<!-- <button class="btn btn-primary" [disabled]="userName===''" (click)="onResetUser()">Reset User</button> -->
+                                <!-- Without function just assigning the value of userName -->
+<button class="btn btn-primary" [disabled]="userName===''" (click)="userName=''">Reset User</button>
+<br><br>
+<!-- Assignment End -->
+
+
+<!-- Directive -->
+
+<!-- ngif -->
+<input type="text" class="form-control-md" [(ngModel)]="serverName">
+<p>{{serverName}}</p>
+<!-- <p *ngIf="serverCreated">Server was created and the server name is {{serverName}}</p> -->
+
+<!-- ngIf else -->
+<p *ngIf="serverCreated; else noServer">Server was created and the server name is {{serverName}}</p>
+<ng-template #noServer>
+    <p>
+        Server was not created
+    </p>
+</ng-template>
+
+<button class="btn btn-primary p-2" (click)="onCreateServer()">create server</button>
+
+<!-- <app-server *ngFor="let server of servers"></app-server> -->
+
 

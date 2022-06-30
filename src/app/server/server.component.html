@@ -3,6 +3,7 @@
 <!-- data binding
     String interpolation
 -->
-<!-- <p>Server with ID {{serverId}} is {{serverStatus}}.</p> -->
+<p>Server with ID {{serverId}} is {{serverStatus}}.</p>
 <!-- same output as above line -->
-<p>Server with ID {{serverId}} is {{getServerStatus()}}.</p> 
+<p [ngStyle]="{backgroundColor: getColor()}"
+ [ngClass]="{online: serverStatus==='online'}">Server with ID {{serverId}} is {{getServerStatus()}}.</p> 
